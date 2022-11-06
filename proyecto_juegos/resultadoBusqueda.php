@@ -25,8 +25,8 @@
     <div class="alert alert-danger">No existen registros con ese término de búsqueda</div>
     <?php } else {
         $sql="SELECT * FROM juegos WHERE nombre LIKE '%" . $_GET["termino"]."%'";
-        $usuarios = $conexion->query($sql);
-        if ($usuarios->num_rows==0) {
+        $juegos = $conexion->query($sql);
+        if ($juegos->num_rows==0) {
             echo "<div class='alert alert-danger'>No existe registros con ese término de búsqueda</div><br>";
         } else {
     ?>
@@ -38,6 +38,8 @@
             <th>Fecha de lanzamiento</th>
             <th>Clasificacion</th>
             <th>Descripcion</th>
+            <th>Opciones</th>
+            <th></th>
         </thead>
         <tbody>
         <?php while($row = $juegos->fetch_assoc()) { ?>
@@ -50,6 +52,8 @@
                 <td><?php echo $row["descripcion"]; ?></td>
                 <td>
                 <a href="actualizarRegistro.php?id=<?php echo $row["id"]; ?>" class="btn btn-primary">Editar</a>
+                </td>
+                <td>
                 <a href="eliminarDatos.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
