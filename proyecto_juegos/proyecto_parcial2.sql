@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-11-2022 a las 06:16:53
+-- Tiempo de generación: 06-11-2022 a las 23:26:47
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -29,11 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `juegos` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `jugabilidad` tinyint(1) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `jugabilidad` varchar(30) NOT NULL,
   `fecha_lanzamiento` date NOT NULL,
-  `clasificacion` tinyint(1) NOT NULL,
-  `descripcion` varchar(100) NOT NULL
+  `clasificacion` varchar(30) NOT NULL,
+  `descripcion` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -41,7 +41,9 @@ CREATE TABLE `juegos` (
 --
 
 INSERT INTO `juegos` (`id`, `nombre`, `jugabilidad`, `fecha_lanzamiento`, `clasificacion`, `descripcion`) VALUES
-(1, 'Grand Theft Auto V', 0, '2013-09-17', 18, 'Grand Theft Auto V es un videojuego de acción-aventura de mundo abierto');
+(1, 'Grand Theft Auto V', 'Ambos', '2013-09-17', '+18', 'Grand Theft Auto V es un videojuego de acción-aventura de mundo abierto.'),
+(2, 'PUBG: Battlegrounds', 'Online', '2017-12-21', 'T', 'Es un videojuego de batalla en línea multijugador masivo. El juego era una beta battle royale de ARM'),
+(3, 'Minecraft', 'Individual o mundo abierto', '2011-11-18', 'E', 'Minecraft es un videojuego de construcción de tipo «mundo abierto» o sandbox creado originalmente por el sueco Markus Persson, ​ y posteriormente desarrollado por Mojang Studios.​');
 
 --
 -- Índices para tablas volcadas
@@ -61,7 +63,7 @@ ALTER TABLE `juegos`
 -- AUTO_INCREMENT de la tabla `juegos`
 --
 ALTER TABLE `juegos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
